@@ -1,6 +1,6 @@
 const CLIENT_ID = 654019946070939;
 const CLIENT_SECRET = "5ca17b8a4bca9443fae595c8e5fca2e2";
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const express = require('express');
 const passport = require('passport');
@@ -11,7 +11,7 @@ const app = express();
 passport.use(new InstagramStrategy({
   clientID: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
-  callbackURL: "https://goldrush-lacosta.netlify.app:3000/auth/instagram/callback"
+  callbackURL: "https://goldrush-lacosta.netlify.app/auth/instagram/callback"
 },
 function(accessToken, refreshToken, profile, cb) {
   // Aquí puedes guardar el perfil del usuario en tu base de datos
@@ -47,5 +47,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Funcionando en el puerto ${port}`)
+    console.log(`Funcionando en el puerto ${process.env.PORT}`)
 })
