@@ -11,7 +11,7 @@ const app = express();
 passport.use(new InstagramStrategy({
   clientID: CLIENT_ID,
   clientSecret: CLIENT_SECRET,
-  callbackURL: "https://goldrush-lacosta.netlify.app/auth/instagram/callback"
+  callbackURL: "https://goldrush.adaptable.app/auth/instagram/callback"
 },
 function(accessToken, refreshToken, profile, cb) {
   // Aquí puedes guardar el perfil del usuario en tu base de datos
@@ -43,7 +43,7 @@ app.get('/auth/instagram/callback',
 );
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Gold Rush')
 })
 
 app.listen(port, () => {
