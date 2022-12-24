@@ -19,7 +19,7 @@ function(accessToken, refreshToken, profile, cb) {
 }
 ));
 
-app.get('/auth/instagram', passport.authenticate('instagram'));
+app.get('/auth/instagram', passport.authenticate('instagram', { scope: ['basic'] }));
 
 app.get('/auth/instagram/callback', 
   passport.authenticate('instagram', { failureRedirect: '/login' }),
