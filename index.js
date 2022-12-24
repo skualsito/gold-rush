@@ -47,5 +47,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Funcionando en el puerto ${process.env.PORT}`)
+    console.log(`Funcionando en el puerto ${port}`)
 })
